@@ -1,6 +1,6 @@
 pipeline {
     environment {
-    registry = "shawnbat/my-simple-webapp"
+    //registry = "shawnbat/my-simple-webapp"
     registryCredential = "dockerhub"
 }
     agent {
