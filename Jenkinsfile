@@ -1,15 +1,14 @@
 pipeline {
-    //environment {
- //   registry = 'shawnbat/my-simple-webapp'
-  //  registryCredential = 'dockerhub'
-//}
     agent {
-        docker { image 'node:7-alpine' }
+        docker {
+            image 'maven:3-alpine'
+            args '-v $HOME/.m2:/root/.m2'
+        }
     }
     stages {
-        stage('Test') {
+        stage('Build') {
             steps {
-                sh 'node --version'
+                sh 'mvn -B'
             }
         }
     }
