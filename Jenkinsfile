@@ -1,7 +1,7 @@
 pipeline {
     environment {
     registry = "shawnbat/my-simple-webapp"
-    registryCredential = ‘dockerhub’
+    registryCredential = "dockerhub"
 }
     agent {
         docker { image 'node:7-alpine' }
