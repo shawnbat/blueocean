@@ -1,4 +1,3 @@
-Jenkinsfile (Declarative Pipeline)
 pipeline {
     agent {
         // Define agent details here
