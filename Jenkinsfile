@@ -1,16 +1,8 @@
-pipeline {
-    environment {
-    //registry = "shawnbat/my-simple-webapp"
-    registryCredential = "dockerhub"
-}
-    agent {
-        docker { image 'node:7-alpine' }
-    }
-    stages {
+node {
+    /* Requires the Docker Pipeline plugin to be installed */
+    docker.image('node:7-alpine').inside {
         stage('Test') {
-            steps {
-                sh 'node --version'
-            }
+            sh 'node --version'
         }
     }
 }
