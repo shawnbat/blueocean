@@ -13,7 +13,7 @@ RUN apk add chromium chromium-chromedriver git
 # install robot
 RUN pip install --upgrade pip
 RUN pip --no-cache-dir install robotframework robotframework-seleniumlibrary selenium
-RUN git config --global url."https://b11a1ea3d09573fcdee441939a9dc8451428935d:@github.com/".insteadOf "https://github.com/"
+//RUN git config --global url."https://b11a1ea3d09573fcdee441939a9dc8451428935d:@github.com/".insteadOf "https://github.com/"
 RUN mkdir Results && \
     chmod 775 Results 
 
