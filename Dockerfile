@@ -14,11 +14,10 @@ RUN apk add chromium chromium-chromedriver git
 RUN pip install --upgrade pip
 RUN pip --no-cache-dir install robotframework robotframework-seleniumlibrary selenium
 RUN git config --global url."https://b11a1ea3d09573fcdee441939a9dc8451428935d:@github.com/".insteadOf "https://github.com/"
-RUN git clone -b QAAutomation --single-branch https://github.com/InternationalCodeCouncil/cdpcms-testing.git \
-    && mkdir Results \
-    && chmod 775 Results
+RUN mkdir Results && \
+    chmod 775 Results 
 
 RUN ln -s /usr/bin/chromedriver /usr/local/bin/chromedriver
-RUN robot -d ./Results -v Environment:DEV -v BROWSER:HeadlessChrome -t Testcase1_CreateProposalToSubmitProposal_WorkFlow ./cdpcms-testing/EndToEndWorkFlowTest
+#RUN robot -d ./Results -v Environment:DEV -v BROWSER:HeadlessChrome -t Testcase1_CreateProposalToSubmitProposal_WorkFlow ./cdpcms-testing/EndToEndWorkFlowTest
 
 CMD ["echo", "Complete!"]
