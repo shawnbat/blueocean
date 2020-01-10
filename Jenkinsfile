@@ -1,19 +1,17 @@
 pipeline {
-    agent {
-        // Define agent details here
-    }
-    environment {
+     agent any
+        environment {
         AWS_ACCESS_KEY_ID     = credentials('dockerhub')
     }
     stages {
         stage('Example stage 1') {
             steps {
-                // 
+                sh "$AWS_ACCESS_KEY_ID"
             }
         }
         stage('Example stage 2') {
             steps {
-                // 
+               sh 'printenv' 
             }
         }
     }
