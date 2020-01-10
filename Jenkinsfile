@@ -1,24 +1,20 @@
+Jenkinsfile (Declarative Pipeline)
 pipeline {
-    agent any 
+    agent {
+        // Define agent details here
+    }
     environment {
-        // Using returnStdout
-        CC = """${sh(
-                returnStdout: true,
-                script: 'echo "clang"'
-            )}""" 
-        // Using returnStatus
-        EXIT_STATUS = """${sh(
-                returnStatus: true,
-                script: 'exit 1'
-            )}"""
+        AWS_ACCESS_KEY_ID     = credentials('dockerhub')
     }
     stages {
-        stage('Example') {
-            environment {
-                DEBUG_FLAGS = '-g'
-            }
+        stage('Example stage 1') {
             steps {
-                sh 'printenv'
+                // 
+            }
+        }
+        stage('Example stage 2') {
+            steps {
+                // 
             }
         }
     }
